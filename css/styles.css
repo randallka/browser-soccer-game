@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body { 
+    display: grid; 
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 10% 1fr 40% 1fr 20%;
+    height: 100vh;
+}
+.title { 
+    grid-column-start: 2;
+     grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.scoreboard-container { 
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: purple;
+}
+.feild { 
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: green;
+}
+.user-team { 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background-color: blue;
+}
+.computer-team { 
+    grid-column-start: 3;
+    grid-column-end: 4;
+     grid-row-start: -5;
+    grid-row-end: -3;
+    background-color: red;
+}
+.instructions { 
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+.teams { 
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    background-color: grey;
+}
