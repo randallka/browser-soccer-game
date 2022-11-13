@@ -31,7 +31,6 @@
   zinchenko = new Player("Zinchenko", 80, 73, 79); 
   white = new Player("White", 79, 64, 81); 
   ramsdale = new Player("Ramsdale", 82, 40, 85); 
-
 //tottenham players 
 son = new Player("Son", 87, 86, 40); 
 kane = new Player("Kane", 87, 85, 42); 
@@ -44,34 +43,98 @@ bentacur = new Player("Bentacur", 79, 76, 78);
 sanchez = new Player("Sanchez", 79, 56, 79)
 dier = new Player("Dier", 80, 67, 80); 
 lloris = new Player("Lloris", 85, 40, 87);
-
  //team arrays containing player objects 
-arsenal = [jesus, odegaard, partey, saka, xhaka, martinelli, gabriel, saliba, zinchenko, white, ramsdale]; 
-tottenham = [son, kane, kulusevski, hojbjerg, perisic, romero, royal, bentacur, sanchez, dier, lloris];
+const arsenal = {
+    name: "arsenal", 
+    roster: [jesus, odegaard, partey, saka, xhaka, martinelli, gabriel, saliba, zinchenko, white, ramsdale]
+}; 
+const tottenham = {
+    name: "tottenham", 
+    roster: [son, kane, kulusevski, hojbjerg, perisic, romero, royal, bentacur, sanchez, dier, lloris]
+};
 
+let availableTeams = [arsenal, tottenham]; 
 //state variables  
-let userPlayers = []; 
-let computerPlayers = []; 
+let userPlayers; 
+let computerPlayers; 
 let userScore; 
 let computerScore; 
+let unavailablePlayers; 
+let instructions; 
+let outcome;
 
 //DOM elements chached 
 let instructionsEl = document.querySelector(".instructions"); 
-let availableTeamEls = document.querySelectorAll(".available-team"); 
+let availableTeamBtn = document.querySelector(".teams"); 
+let userScoreEl = document.querySelector(".user-score"); 
+let computerScoreEl = document.querySelector(".computer-score"); 
+let userPlayerEl = document.querySelectorAll(".user-player"); 
+let computerPlayerEl = document.querySelectorAll(".computer-player");
+let outcomeEl = document.querySelector(".event-outcome");
+let userTeamEl = document.querySelector(".user-team");
+let computerTeamEl = document.querySelector(".computer-team");
+//event listeners 
+
+availableTeamBtn.addEventListener("click", chooseTeam);
+//team buttons on click run function to set up rosters w/ player buttons and start game (initial instructions for random attack/defend)
+
+
+//player buttons to choose player for situation and change class to unavailable 
+
 
 //functions 
 
+init() 
 //onclick team selection to create player roster of clickable player buttons 
+function chooseTeam(e) { 
+    teamName = e.target.innerText; 
+    //user team is the selected team
+    userTeam = availableTeams.find(player => player.name === teamName);
+    //remove team from available so computer can select a team 
+    index = availableTeams.indexOf(availableTeams.find(player => player.name === teamName));
+    availableTeams.splice(index, 1); 
+    //add plyer buttons to user roster 
+   userTeam.roster.forEach(player => { 
+        playerBtn = document.createElement("button");
+        let name = document.createTextNode(player.name); 
+        playerBtn.appendChild(name);
+        playerBtn.classList.add("unUsed");
+        userTeamEl.appendChild(playerBtn); 
+   })
+   //add players to computer roster 
+   computerTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)]; 
+   computerTeam.roster.forEach(player => { 
+        playerBtn = document.createElement("button");
+        let name = document.createTextNode(player.name); 
+        playerBtn.appendChild(name);
+        playerBtn.classList.add("unUsed");
+        playerBtn.classList.add("unclickable"); 
+        computerTeamEl.appendChild(playerBtn); 
+})
+render()   
+}
 
+//onclick for player buttons to run situation 
 //init 
 function init() { 
-
+    userScore = 0; 
+    computerScore = 0; 
+    instructions = "Pick the team you'd like to play as! The computer will select another"
+    outcome = ""
+    render() 
 }
 //render 
-
+// player button classes
+//score
 function render() { 
+    userScoreEl.innerText = userScore; 
+    computerScoreEl.innerText = computerScore; 
+    instructionsEl.innerText = instructions; 
+    outcomeEl.innerText = outcome; 
+//remove available teams if a team has been selected 
+    if (userTeamEl.querySelector("button") !== null) { 
+        availableTeamBtn.remove()
+    }
 
 }
 
-
-console.log(availableTeamEls);

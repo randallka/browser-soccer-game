@@ -56,3 +56,16 @@ body {
     grid-row-end: 6;
     background-color: grey;
 }
+
+button.unclickable { 
+    cursor: not-allowed;
+}
+
+button.unUsed { 
+    background-color: green;
+}
+
+button.used { 
+    cursor: not-allowed; 
+    background-color: red;
+}
