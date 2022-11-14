@@ -59,7 +59,7 @@ let userPlayers;
 let computerPlayers; 
 let userScore; 
 let computerScore; 
-let unavailablePlayers; 
+let gamePhase; 
 let instructions; 
 let outcome;
 
@@ -85,6 +85,12 @@ availableTeamBtn.addEventListener("click", chooseTeam);
 //functions 
 
 init() 
+
+//choose first attack/defend action randomly
+function randomAction() { 
+    return (Math.random() < 0.5) ? gamePhase = "attack" : gamePhase = "defend" 
+} 
+
 //onclick team selection to create player roster of clickable player buttons 
 function chooseTeam(e) { 
     teamName = e.target.innerText; 
@@ -111,6 +117,7 @@ function chooseTeam(e) {
         playerBtn.classList.add("unclickable"); 
         computerTeamEl.appendChild(playerBtn); 
 })
+randomAction() 
 render()   
 }
 
@@ -127,14 +134,22 @@ function init() {
 // player button classes
 //score
 function render() { 
-    userScoreEl.innerText = userScore; 
-    computerScoreEl.innerText = computerScore; 
-    instructionsEl.innerText = instructions; 
-    outcomeEl.innerText = outcome; 
 //remove available teams if a team has been selected 
     if (userTeamEl.querySelector("button") !== null) { 
         availableTeamBtn.remove()
     }
-
+//text to display in instructions based on gamephase 
+    if (gamePhase === "attack"){ 
+        instructions = "Pick a player to try and score!"           
+    } else if (gamePhase === "defend") { 
+        instructions = "Pick a player to defend"
+    } else if (gamePhase === "control") { 
+        instructions = "pick a player to control the game"
+    }
+//update all elements
+    userScoreEl.innerText = userScore; 
+    computerScoreEl.innerText = computerScore; 
+    instructionsEl.innerText = instructions; 
+    outcomeEl.innerText = outcome; 
 }
 

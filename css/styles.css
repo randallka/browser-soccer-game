@@ -10,6 +10,9 @@ body {
     height: 100vh;
 }
 .title { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column-start: 2;
      grid-column-end: 3;
     grid-row-start: 1;
@@ -20,34 +23,71 @@ body {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: purple;
+    background-color: grey;
+    margin: 20px;
+    border-radius: 25px;
+}
+.scoreboard-container > h4 { 
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+}
+.scoreboard-container > div { 
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
 }
 .feild { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    background-color: green;
+    background-color: rgb(83, 154, 70);
+    background-image: url(https://i.imgur.com/BSMiQYv.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    
 }
+
 .user-team { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 4;
-    background-color: blue;
+    border: 1px solid blue;
+    margin: 20px;
+    border-radius: 25px;
 }
 .computer-team { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column-start: 3;
     grid-column-end: 4;
-     grid-row-start: -5;
+    grid-row-start: -5;
     grid-row-end: -3;
-    background-color: red;
+    border: 1px solid red;
+    margin: 20px;
+    border-radius: 25px;
 }
 .instructions { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 5;
+    margin: 20px;
+    border-radius: 25px;
 }
 .teams { 
     grid-column-start: 2;
@@ -55,6 +95,18 @@ body {
     grid-row-start: 5;
     grid-row-end: 6;
     background-color: grey;
+    border-radius: 25px;
+}
+
+/* button formatting for teams and players */
+
+button { 
+    margin: 5px;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    font-weight: bold;
 }
 
 button.unclickable { 
