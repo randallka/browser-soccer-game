@@ -129,7 +129,41 @@ body {
     margin-bottom: 20px;
 }
 
-/* button formatting for teams and players */
+/* classes to adjust team border whn team is selected */
+
+#Dortmund-border { 
+    border: 1px solid rgb(240, 214, 0);
+    box-shadow: inset 0px 0px 21px 2px rgb(240, 214, 0);
+}
+#Bayern-border { 
+    border: 1px solid rgb(209, 5, 43);
+    box-shadow: inset 0px 0px 21px 2px rgb(209, 5, 43);
+}
+#Barcelona-border { 
+    border: 1px solid rgb(181, 0, 66);
+    box-shadow: inset 0px 0px 21px 2px rgb(181, 0, 66);
+}
+#Real-Madrid-border { 
+    border: 1px solid white;
+    box-shadow: inset 0px 0px 21px 2px white;
+}
+#Inter-border { 
+    border: 1px solid rgb(0, 24, 161);
+    box-shadow: inset 0px 0px 21px 2px rgb(0, 24, 161);
+}
+#PSG-border { 
+    border: 1px solid rgb(0, 63, 113);
+    box-shadow: inset 0px 0px 21px 2px rgb(0, 63, 113);
+}
+#Tottenham-border { 
+    border: 1px solid white;
+    box-shadow: inset 0px 0px 21px 2px white;
+}
+#Arsenal-border { 
+    border: 1px solid rgb(232, 1, 7);
+    box-shadow: inset 0px 0px 21px 2px rgb(232, 1, 7);
+}
+/*button formatting for teams and players */
 
 button { 
     margin: 5px;
@@ -139,6 +173,50 @@ button {
     border: 1px solid white;
     font-weight: bold;
     font-size: 18px; 
+}
+.dortmund { 
+    background-color: rgb(240, 214, 0); 
+    color: black;	
+}
+.bayern { 
+    background-color: rgb(209, 5, 43);	
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: rgb(0, 97, 169);
+}
+.barcelona { 
+    color:rgb(239, 179, 0);	
+    background-color: rgb(0, 80, 158);	
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: rgb(181, 0, 66);
+
+}
+.madrid { 
+    color:rgb(239, 181, 0);	
+    background-color: white;	
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: rgb(0, 69, 142);
+}
+.inter { 
+    color: white;	
+    background-color: rgb(0, 24, 161);	
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: black;
+}
+.psg { 
+    color: rgb(228, 1, 11);	
+    background-color: rgb(0, 63, 113);	
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: white;
+}
+.tottenham { 
+    color: rgb(18, 32, 83);	
+    background-color: white;	
+}
+.arsenal { 
+    color: white;	
+    background-color: rgb(232, 1, 7);	
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: rgb(151, 126, 72);
 }
 
 button.unclickable { 

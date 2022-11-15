@@ -134,7 +134,7 @@ davies = new Player("Davies", 83, 77, 76);
 hernandez = new Player("Hernandez", 83, 64, 84);
 upmecano = new Player("Upmecano", 81, 53, 80);
 neuer = new Player("Neuer", 89, 35, 90);
-//Dordtmund Players 
+//Dortmund Players 
 haller = new Player("Haller", 81, 78, 52);
 reus = new Player("Reus", 84, 84, 53);
 bellingham = new Player("Bellingham", 84, 80, 77);
@@ -176,7 +176,7 @@ const bayern = {
     roster: [mane, sane, coman, kimmich, goretzka, muller, ligt, davies, hernandez, upmecano, neuer],
 };
 const dordtmund = { 
-    name: "Dordtmund", 
+    name: "Dortmund", 
     roster: [haller, reus, bellingham, brandt, can, reyna, sule, hummels, schlotterbeck, guerreiro, kobel],
 }; 
 let availableTeams = [arsenal, tottenham, psg, inter, madrid, barcelona, bayern, dordtmund];  
@@ -225,6 +225,11 @@ function checkWin() {
         }
 }
 }
+//change bench borders to reflect team 
+function changeBorder(side, team) {
+    textId = `${team.name.replace(" ", "-")}-border`
+    side.setAttribute("id", textId)
+};
 function setInstructions() { 
     if (gamePhase === "attack"){ 
         instructions = "Pick a player to try and score!";           
@@ -251,6 +256,7 @@ function chooseTeam(e) {
         userTeamEl.appendChild(playerBtn); 
    })
    userName = userTeam.name;
+   changeBorder(userTeamEl, userTeam);
    //add players to computer roster 
    computerTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)]; 
    computerTeam.roster.forEach(player => { 
@@ -261,7 +267,8 @@ function chooseTeam(e) {
         playerBtn.classList.add("unclickable"); 
         computerTeamEl.appendChild(playerBtn); 
 })
-computerName = computerTeam.name;
+    changeBorder(computerTeamEl, computerTeam)
+    computerName = computerTeam.name;
     randomAction(); 
     removeTeams();
     setInstructions();
