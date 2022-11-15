@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/main.js" ></script>
     <link rel="stylesheet" href="css/styles.css">
-    <title>Soccer Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poiret+One&display=swap" rel="stylesheet">
+
+    <title>Select Soccer</title>
 </head>
 <body>
  <div class="title"> 
-    <h2">Browser soccer game</h2>
+    <h1>Select Soccer</h1>
  </div>
  <div class="scoreboard-container">
-    <h4>Game Score</h3>
+    <div class="team-names">
+        <h3 class="user-team-name">user</h3>
+        <h3 class="computer-team-name">computer</h3>
+    </div>
     <div class="scores">
         <h3 class="user-score">User score</p>
         <h3 class="computer-score">Computer score</h3>
@@ -21,23 +28,27 @@
  </div>
 
  <div class="feild"> 
-    <p class="event-outcome">this is the field it will have images during events and descriptions of what happens</p>
+    <h4 class="event-outcome"></h4>
     <div class="outcomes">
         <h1 class="outcome-image"></h1>
     </div>
 </div>
 <div class="user-team"> 
-    Your team
 </div>
 <div class = "computer-team"> 
-    Opp. team
 </div>
 <div class="instructions">
     <p>Pick which team you'd like to play as!</p>
 </div>
 <section class="teams">
-    <button id="arsenal">arsenal</button>
-    <button id="tottenham">tottenham</button>
+    <button id="arsenal">Arsenal</button>
+    <button id="tottenham">Tottenham</button>
+    <button id="psg">PSG</button>
+    <button id="inter">Inter</button>
+    <button id="madrid">Real Madrid</button>
+    <button id="barcelona">Barcelona</button>
+    <button id="bayern">Bayern</button>
+    <button id="dordtmund">Dordtmund</button>
 </section>
 </body>
 </html>

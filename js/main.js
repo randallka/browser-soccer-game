@@ -47,8 +47,6 @@ let outcome;
         }
     }
  }
-
- 
 //creating all players 
 //arsenal players
 jesus = new Player("Jesus", 85, 83, 41);
@@ -74,18 +72,113 @@ bentacur = new Player("Bentacur", 79, 76, 78);
 sanchez = new Player("Sanchez", 79, 56, 79)
 dier = new Player("Dier", 80, 67, 80); 
 lloris = new Player("Lloris", 85, 40, 87);
-
+// PSG plyers
+messi = new Player("Messi", 90, 89, 34); 
+mbappe = new Player("Mbappe", 89, 88, 36);
+neymar = new Player("Neymar", 88, 87, 36);
+verratti = new Player("Verratti", 86, 85, 79);
+vitinha = new Player("Vitinha", 80, 78, 67);
+marquinhos = new Player("Marquinhos", 87, 66, 87);
+ramos = new Player("Ramos", 83, 70, 83);
+hakimi = new Player("Hakimi", 83, 78, 75);
+kimpembe = new Player("Kimpembe", 83, 57, 82);
+bernat = new Player("Bernat", 78, 74, 75);
+donnarumma = new Player("Donnarumma", 87, 38, 88)
+//Inter players
+martinez = new Player("Martinez", 85, 82, 48);
+lukaku = new Player("Lukaku", 85, 83, 38);
+dzeko = new Player("Dzeko", 82, 81, 45);
+barella = new Player("Barella", 83, 80, 77);
+brozovic = new Player("Brozovic", 84, 78, 81);
+calhanoglu = new Player("Calhanoglu", 83, 83, 64);
+mikhitaryan = new Player("Mikitaryan", 80, 79, 56);
+skriniar = new Player("Skriniar", 84, 55, 86);
+vrij = new Player("Vrij", 83, 51, 84);
+dumfries = new Player("Dumfries", 81, 67, 78);
+handanovic = new Player("Handanovic", 84, 38, 86);
+//Real Madrid Players
+benzema = new Player("Benzema", 90, 87, 37);
+vinicius = new Player("Vinicius Jr.", 85, 84, 29);
+hazard = new Player("Hazard", 84, 84, 35);
+modric = new Player("Modric", 88, 85, 70);
+kroos = new Player("Kroos", 86, 83, 71);
+valverde = new Player("Valverde", 83, 77, 78);
+rudiger = new Player("Rudiger", 86, 63, 86); 
+alaba = new Player("Alaba", 85, 78, 84);
+carvajal = new Player("Carvajal", 83, 70, 78);
+militao = new Player("Militao", 83, 60, 83);
+courtois = new Player("Courtois", 89, 39, 89);
+//Barcelona Players
+lewandowski = new Player("Lewandowski", 90, 88, 43);
+dembele = new Player("Dembele", 83, 81, 36);
+ansu = new Player("Ansu Fati", 81, 78, 35);
+deJong = new Player("De Jong", 86, 82, 77);
+pedri = new Player("Pedri", 84, 81, 68);
+depay = new Player("Depay", 83, 83, 30);
+alba = new Player("Alba", 84, 76, 78);
+kounde = new Player("Kounde", 84, 67, 85);
+arujo = new Player("Arujo", 82, 60, 83);
+christensen = new Player("Christensen", 81, 55, 83);
+stegen = new Player("ter Stegen", 86, 32, 87);
+//Bayern Players
+mane = new Player("Mane", 88, 86, 44);
+sane = new Player("Sane", 84, 83, 38);
+coman = new Player("Coman", 84, 83, 35);
+kimmich = new Player("Kimmich", 88, 82, 83);
+goretzka = new Player("Goretzka", 86, 82, 80);
+muller = new Player("Muller", 84, 82, 56);
+ligt = new Player("De Ligt", 85, 62, 84);
+davies = new Player("Davies", 83, 77, 76);
+hernandez = new Player("Hernandez", 83, 64, 84);
+upmecano = new Player("Upmecano", 81, 53, 80);
+neuer = new Player("Neuer", 89, 35, 90);
+//Dordtmund Players 
+haller = new Player("Haller", 81, 78, 52);
+reus = new Player("Reus", 84, 84, 53);
+bellingham = new Player("Bellingham", 84, 80, 77);
+brandt = new Player("Brandt", 82, 81, 48);
+can = new Player("Can", 82, 79, 82);
+reyna = new Player("Reyna", 78, 77, 36);
+sule = new Player("Sule", 84, 56, 87);
+hummels = new Player("Hummels", 84, 61, 85);
+schlotterbeck = new Player("Schlotterbeck", 81, 63, 82);
+guerreiro = new Player("Guerreiro", 81, 79, 75);
+kobel = new Player("Kobel", 83, 29, 85);
  //team arrays containing rosters
 const arsenal = {
-    name: "arsenal", 
-    roster: [jesus, odegaard, partey, saka, xhaka, martinelli, gabriel, saliba, zinchenko, white, ramsdale]
+    name: "Arsenal", 
+    roster: [jesus, odegaard, partey, saka, xhaka, martinelli, gabriel, saliba, zinchenko, white, ramsdale],
 }; 
 const tottenham = {
-    name: "tottenham", 
-    roster: [son, kane, kulusevski, hojbjerg, perisic, romero, royal, bentacur, sanchez, dier, lloris]
+    name: "Tottenham", 
+    roster: [son, kane, kulusevski, hojbjerg, perisic, romero, royal, bentacur, sanchez, dier, lloris],
 };
-
-let availableTeams = [arsenal, tottenham];  
+const psg = { 
+    name: "PSG",
+    roster: [messi, mbappe, neymar, verratti, vitinha, marquinhos, ramos, hakimi, kimpembe, bernat, donnarumma],
+};
+const inter = { 
+    name: "Inter", 
+    roster: [martinez, lukaku, dzeko, barella, brozovic, calhanoglu, mikhitaryan, skriniar, vrij, dumfries, handanovic],
+};
+const madrid = { 
+    name: "Real Madrid", 
+    roster: [benzema, vinicius, hazard, modric, kroos, valverde, rudiger, alaba, carvajal, militao, courtois],
+};
+const barcelona = { 
+    name: "Barcelona", 
+    roster: [lewandowski, dembele, ansu, deJong, pedri, depay, alba, kounde, arujo, christensen, stegen],
+};
+const bayern = { 
+    name: "Bayern",
+    roster: [mane, sane, coman, kimmich, goretzka, muller, ligt, davies, hernandez, upmecano, neuer],
+};
+const dordtmund = { 
+    name: "Dordtmund", 
+    roster: [haller, reus, bellingham, brandt, can, reyna, sule, hummels, schlotterbeck, guerreiro, kobel],
+};
+console.log(dordtmund); 
+let availableTeams = [arsenal, tottenham, psg, inter, madrid, barcelona, bayern, dordtmund];  
 
 //DOM elements chached 
 let instructionsEl = document.querySelector(".instructions"); 
@@ -146,7 +239,7 @@ function chooseTeam(e) {
     //remove team from available so computer can select a team 
     index = availableTeams.indexOf(availableTeams.find(team => team.name === teamName));
     availableTeams.splice(index, 1); 
-    //add plyer buttons to user roster 
+    //add player buttons to user roster 
    userTeam.roster.forEach(player => { 
         playerBtn = document.createElement("button");
         let name = document.createTextNode(player.name); 
@@ -185,7 +278,6 @@ function select(e) {
       }
     }
     computerPlayerBtn = getBtn();
-
 //run action function if player is unUsed 
     if (e.target.classList.contains("unUsed")) {
         if (gamePhase === "attack") { 
@@ -207,8 +299,6 @@ function select(e) {
     render();
 }
 
-
-//init 
 function init() { 
     userScore = 0; 
     computerScore = 0; 
