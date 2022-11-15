@@ -1,6 +1,8 @@
 // state variables
-let userTeam; 
+let userTeam;
+let userName;
 let computerTeam; 
+let computerName;
 let userScore; 
 let computerScore; 
 let gamePhase; 
@@ -176,8 +178,7 @@ const bayern = {
 const dordtmund = { 
     name: "Dordtmund", 
     roster: [haller, reus, bellingham, brandt, can, reyna, sule, hummels, schlotterbeck, guerreiro, kobel],
-};
-console.log(dordtmund); 
+}; 
 let availableTeams = [arsenal, tottenham, psg, inter, madrid, barcelona, bayern, dordtmund];  
 
 //DOM elements chached 
@@ -188,6 +189,8 @@ let computerScoreEl = document.querySelector(".computer-score");
 let outcomeEl = document.querySelector(".event-outcome");
 let userTeamEl = document.querySelector(".user-team");
 let computerTeamEl = document.querySelector(".computer-team");
+let userTeamNameEl = document.querySelector(".user-team-name"); 
+let computerTeamNameEl = document.querySelector(".computer-team-name");
 
 //event listeners 
 
@@ -214,9 +217,9 @@ function checkWin() {
     if (computerTeam.roster.length === 0) { 
         userTeamEl.removeEventListener("click", select);
         if (userScore > computerScore) { 
-            instructions = "Your team won the game! Go celebrate! reload the page to play again";
+            instructions = "Your team won the game! Go celebrate!";
         } else if (userScore < computerScore) { 
-            instructions = "Your team lost. Reload the page to play again";
+            instructions = "Your team lost.";
         } else if (userScore === computerScore) { 
             instructions = "It's a tie! (Yep ties happen in soccer, sorry)";
         }
@@ -247,6 +250,7 @@ function chooseTeam(e) {
         playerBtn.classList.add("unUsed");
         userTeamEl.appendChild(playerBtn); 
    })
+   userName = userTeam.name;
    //add players to computer roster 
    computerTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)]; 
    computerTeam.roster.forEach(player => { 
@@ -257,6 +261,7 @@ function chooseTeam(e) {
         playerBtn.classList.add("unclickable"); 
         computerTeamEl.appendChild(playerBtn); 
 })
+computerName = computerTeam.name;
     randomAction(); 
     removeTeams();
     setInstructions();
@@ -303,7 +308,9 @@ function init() {
     userScore = 0; 
     computerScore = 0; 
     instructions = "Pick the team you'd like to play as! The computer will select another"
-    outcome = ""
+    outcome = "";
+    userName = "";
+    computerName = "";
     render(); 
 }
 
@@ -312,5 +319,7 @@ function render() {
     computerScoreEl.innerText = computerScore; 
     instructionsEl.innerText = instructions; 
     outcomeEl.innerText = outcome; 
+    userTeamNameEl.innerText = userName;
+    computerTeamNameEl.innerText = computerName;
 }
 
