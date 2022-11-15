@@ -230,6 +230,38 @@ function changeBorder(side, team) {
     textId = `${team.name.replace(" ", "-")}-border`
     side.setAttribute("id", textId)
 };
+
+//computer will choose the best player it has left for a given situation
+function choosePlayer(roster) { 
+    let maxStat = 0;
+    let highestPlayer;
+    if (gamePhase === "defend") {
+    roster.forEach((player) => {
+        if (player.atk > maxStat) { 
+            maxStat = player.atk
+            highestPlayer = player
+            return maxStat
+        } 
+    })
+    } else if (gamePhase === "attack") { 
+        roster.forEach((player) => {
+            if (player.def > maxStat) { 
+                maxStat = player.def
+                highestPlayer = player
+                return maxStat
+            } 
+        })
+    } else if (gamePhase === "control") { 
+        roster.forEach((player) => {
+            if (player.ovr > maxStat) { 
+                maxStat = player.ovr
+                highestPlayer = player
+                return maxStat
+            } 
+        })
+    }
+    return highestPlayer 
+}
 function setInstructions() { 
     if (gamePhase === "attack"){ 
         instructions = "Pick a player to try and score!";           
@@ -280,8 +312,8 @@ function select(e) {
     playerName = e.target.innerText;
     selectedPlayer = userTeam.roster.find(player => player.name === playerName);
 //computer randomly selects player to compete
-    computerPlayerIndex = Math.floor(Math.random() * computerTeam.roster.length);
-    computerPlayer = computerTeam.roster[computerPlayerIndex];
+    computerPlayer = choosePlayer(computerTeam.roster);
+    computerPlayerIndex = computerTeam.roster.indexOf(computerPlayer);
 //caching button to add used class  
     function getBtn() {for (const a of document.querySelectorAll("button")) {
         if (a.textContent.includes(computerPlayer.name)) {
