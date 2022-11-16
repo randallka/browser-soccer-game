@@ -230,7 +230,19 @@ function changeBorder(side, team) {
     textId = `${team.name.replace(" ", "-")}-border`
     side.setAttribute("id", textId)
 };
+//function to display stats on player hover
 
+function displayStats(e) { 
+    playerName = e.target.innerText;
+    hoveredPlayer = userTeam.roster.find(player => player.name === playerName);
+    playerAtk = hoveredPlayer.atk;
+    playerDef = hoveredPlayer.def
+    e.target.innerText = `Atk: ${playerAtk} Def: ${playerDef}`;
+}
+function revertStats(e) { 
+    playerName = e.target.id; 
+    e.target.innerText = playerName
+}
 //computer will choose the best player it has left for a given situation
 function choosePlayer(roster) { 
     let maxStat = 0;
@@ -262,6 +274,8 @@ function choosePlayer(roster) {
     }
     return highestPlayer 
 }
+
+
 function setInstructions() { 
     if (gamePhase === "attack"){ 
         instructions = "Pick a player to try and score!";           
@@ -284,7 +298,11 @@ function chooseTeam(e) {
         playerBtn = document.createElement("button");
         let name = document.createTextNode(player.name); 
         playerBtn.appendChild(name);
+        playerBtn.setAttribute("id", player.name);
         playerBtn.classList.add("unUsed");
+        playerBtn.classList.add("hoverable");
+        playerBtn.addEventListener("mouseover", displayStats);
+        playerBtn.addEventListener("mouseout", revertStats);
         userTeamEl.appendChild(playerBtn); 
    })
    userName = userTeam.name;
@@ -309,7 +327,7 @@ function chooseTeam(e) {
 
 //select function to use player for gamePhase
 function select(e) { 
-    playerName = e.target.innerText;
+    playerName = e.target.id;
     selectedPlayer = userTeam.roster.find(player => player.name === playerName);
 //computer randomly selects player to compete
     computerPlayer = choosePlayer(computerTeam.roster);

@@ -226,7 +226,10 @@ button.unclickable {
 button.unUsed { 
     background-color: rgba(0, 211, 166	, 0.7);
 }
-
+button.hoverable:hover { 
+    background-color: black;
+    transform: scale(1.2);
+}
 button.used { 
     cursor: not-allowed; 
     background-color: rgba(237, 18, 0, 0.4);
