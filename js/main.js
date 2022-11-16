@@ -13,6 +13,8 @@ let outcome;
 
 const goalSound = new Audio('Audio/crowdCheer.mp3');
 const ambientCrowd = document.querySelector(".background");
+const whistleSound = new Audio("Audio/whistle.mp3");
+const awSound = new Audio("Audio/crowdAww.mp3");
  //player class 
  class Player { 
     constructor(name, ovr, atk, def) { 
@@ -37,12 +39,15 @@ const ambientCrowd = document.querySelector(".background");
         }
     }
     defend(atkPlayer) { 
+        awSound.pause();
+        awSound.currentTime = 0;
         if ((this.ovr + (this.def * 1.5)) > (atkPlayer.ovr + (atkPlayer.atk * 1.5))) { 
             userScore += 0
             outcome = `${this.name} defends well and takes the ball from ${atkPlayer.name}`
             gamePhase = "control"
         } else if ((atkPlayer.ovr + (atkPlayer.atk * 1.5)) >= (this.ovr + (this.def * 1.5))) { 
             computerScore += 1
+            awSound.play();
             outcome = `${this.name} fails to defend and ${atkPlayer.name} scores!`
             gamePhase = "control"
         }
@@ -243,10 +248,16 @@ function randomAction() {
 function checkWin() { 
     if (computerTeam.roster.length === 0) { 
         userTeamEl.removeEventListener("click", select);
+        ambientCrowd.pause(); 
+        whistleSound.play();
         if (userScore > computerScore) { 
             instructions = "Your team won the game! Go celebrate!";
+            goalSound.pause(); 
+            goalSound.currentTime = 0;
+            goalSound.play();
         } else if (userScore < computerScore) { 
             instructions = "Your team lost.";
+            awSound.play();
         } else if (userScore === computerScore) { 
             instructions = "It's a tie! (Yep ties happen in soccer, sorry)";
         }
