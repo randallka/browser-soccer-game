@@ -8,6 +8,11 @@ let computerScore;
 let gamePhase; 
 let instructions; 
 let outcome;
+
+//sounds 
+
+const goalSound = new Audio('Audio/crowdCheer.mp3');
+const ambientCrowd = document.querySelector(".background");
  //player class 
  class Player { 
     constructor(name, ovr, atk, def) { 
@@ -18,10 +23,13 @@ let outcome;
     }
     //gamephase methods that alter the score and gamephase, displaying messages while they do so 
     attack(defPlayer) { 
+        goalSound.pause();
+        goalSound.currentTime = 0;
         if ((this.ovr + (this.atk * 1.5)) >= (defPlayer.ovr + (defPlayer.def * 1.5))) { 
             userScore += 1
             outcome = `${this.name} beats ${defPlayer.name}  and scores!`
             gamePhase = "control"
+            goalSound.play();
         } else if ((defPlayer.ovr + (defPlayer.def * 1.5)) > (this.ovr + (this.atk * 1.5))) { 
             computerScore += 0
             outcome = `${defPlayer.name} stops ${this.name}'s attack`
@@ -191,16 +199,35 @@ let userTeamEl = document.querySelector(".user-team");
 let computerTeamEl = document.querySelector(".computer-team");
 let userTeamNameEl = document.querySelector(".user-team-name"); 
 let computerTeamNameEl = document.querySelector(".computer-team-name");
+let audioBtnEl = document.querySelector(".audio-button");
 
 //event listeners 
 
 availableTeamBtn.addEventListener("click", chooseTeam);
 userTeamEl.addEventListener("click", select);
+audioBtnEl.addEventListener("click", toggleAudio);
+
 
 init() 
 
 //functions
 
+//play/pause audio on button click 
+function toggleAudio(e) { 
+    if (e.target.classList.contains("mute")) {
+        ambientCrowd.play(); 
+        e.target.classList.remove("mute"); 
+        e.target.classList.add("playing");
+        e.target.classList.remove("fa-volume-xmark");
+        e.target.classList.add("fa-volume-high");
+    } else if (e.target.classList.contains("playing")) { 
+        ambientCrowd.pause(); 
+        e.target.classList.remove("playing");
+        e.target.classList.add("mute");
+        e.target.classList.remove("fa-volume-high");
+        e.target.classList.add("fa-volume-xmark");
+    }
+}
 //remove available teams if a team has been selected 
 function removeTeams() { 
     if (userTeamEl.querySelector("button") !== null) { 

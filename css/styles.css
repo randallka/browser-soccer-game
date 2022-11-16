@@ -13,7 +13,7 @@ body {
 }
 .title { 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     grid-column-start: 2;
@@ -112,7 +112,7 @@ body {
     grid-row-end: 5;
     margin: 20px;
     border-radius: 25px;
-    font-size: 30px;
+    font-size: 35px;
     color: white;
 
 }
@@ -127,6 +127,15 @@ body {
     justify-content: center; 
     align-items: center; 
     margin-bottom: 20px;
+}
+.audio-button { 
+    font-size: 20px;
+}
+.mute { 
+    background-color: rgba(237, 18, 0);
+}
+.playing { 
+    background-color: rgba(0, 211, 166);
 }
 
 /* classes to adjust team border whn team is selected */
