@@ -17,8 +17,9 @@
 #### For each phase the instructions will prompt the user to select a player from their roster. Upon hovering the player buttons the user can see each players attack and defense stat. 
 #### After a player is chosen by the user the computer will select a player best suited to compete in the given gamephase. The players are compared and results are displayed on the feild and reflected in the game score 
 #### Each player can only be used once. After all players have been used the game results are evaluated and the user is shown whether they won, lost, or tied 
+#### Crowd noises are played when the user scores or is scored against and a whisle signifies the end of the game.Click the sound button next to the title to toggle on some soccer stadium noise!
 
 ### Next Steps: 
 * reset button 
 * difficulty modes
-* animations and sounds to make game events more obvious 
+* animations make game events more obvious 
