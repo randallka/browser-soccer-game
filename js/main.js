@@ -243,7 +243,6 @@ function removeTeams() {
 function randomAction() { 
     return (Math.random() < 0.5) ? gamePhase = "attack" : gamePhase = "defend";
 } 
-
 //if computer roster is empty then evaluate the score and display the end game message 
 function checkWin() { 
     if (computerTeam.roster.length === 0) { 

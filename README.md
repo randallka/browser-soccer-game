@@ -10,9 +10,9 @@
 ### Getting Started: 
 #### At the start of the game the user will choose which team they would like to play as. The computer will then do the same . 
 #### After team selection both rosters will be populated with 11 players. The players are based off of real players and have uniques stats coinciding with their real-life ability. 
-#### Under the feild instructions tell the user what phase of the game is happening: 
-* Attack: the player is trying to score 
-* Defend: the player is trying to stop the computer from scoring 
+#### Under the field, instructions tell the user what phase of the game is happening: 
+* Attack: the user is trying to score 
+* Defend: the user is trying to stop the computer from scoring 
 * Control: the winner of control gets to attack and the loser defends 
 #### For each phase the instructions will prompt the user to select a player from their roster. Upon hovering the player buttons the user can see each players attack and defense stat. 
 #### After a player is chosen by the user the computer will select a player best suited to compete in the given gamephase. The players are compared and results are displayed on the feild and reflected in the game score 
