@@ -233,11 +233,13 @@ function changeBorder(side, team) {
 //function to display stats on player hover
 
 function displayStats(e) { 
+    if (e.target.classList.contains("hoverable")) {
     playerName = e.target.innerText;
     hoveredPlayer = userTeam.roster.find(player => player.name === playerName);
     playerAtk = hoveredPlayer.atk;
     playerDef = hoveredPlayer.def
     e.target.innerText = `Atk: ${playerAtk} Def: ${playerDef}`;
+    }
 }
 function revertStats(e) { 
     playerName = e.target.id; 
@@ -351,6 +353,7 @@ function select(e) {
         };
 //adjust player classes to show on screen and remove event listener from button 
         e.target.classList.remove("unUsed");
+        e.target.classList.remove("hoverable");
         e.target.classList.add("used");
         computerPlayerBtn.classList.remove("unUsed");
         computerPlayerBtn.classList.add("used");
