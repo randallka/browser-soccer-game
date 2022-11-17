@@ -270,8 +270,23 @@ function checkWin() {
         } else if (userScore === computerScore) { 
             instructions = "It's a tie! (Yep ties happen in soccer, sorry)";
         }
+        addReplayBtn();
     }
 }
+
+//add replay btn on game end 
+function addReplayBtn() { 
+    const replayBtnEl = document.querySelector(".button-placeholder"); 
+    const newBtnEl = document.createElement("button"); 
+    newBtnEl.innerText = "Play Again"; 
+    newBtnEl.classList.add("replay-button")
+    replayBtnEl.appendChild(newBtnEl);
+    newBtnEl.addEventListener("click", reload);
+}
+function reload() { 
+    location.reload();
+}
+
 //change bench borders to reflect team 
 function changeBorder(side, team) {
     textId = `${team.name.replace(" ", "-")}-border`

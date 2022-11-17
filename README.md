@@ -20,6 +20,6 @@
 #### Crowd noises are played when the user scores or is scored against and a whisle signifies the end of the game.Click the sound button next to the title to toggle on some soccer stadium noise!
 
 ### Next Steps: 
-* reset button 
 * difficulty modes
 * animations make game events more obvious 
+* css adjustments for dynamic sizing
