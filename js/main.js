@@ -1,5 +1,3 @@
-console.log("this is the gh-pages branch");
-
 // state variables
 let userTeam;
 let userName;
