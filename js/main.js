@@ -31,7 +31,9 @@ const awSound = new Audio("Audio/crowdAww.mp3");
             userScore += 1
             outcome = `${this.name} beats ${defPlayer.name}  and scores!`
             gamePhase = "control"
+            if (audioBtnEl.classList.contains("playing")) {
             goalSound.play();
+            }
         } else if ((defPlayer.ovr + (defPlayer.def * 1.5)) > (this.ovr + (this.atk * 1.5))) { 
             computerScore += 0
             outcome = `${defPlayer.name} stops ${this.name}'s attack`
@@ -47,9 +49,11 @@ const awSound = new Audio("Audio/crowdAww.mp3");
             gamePhase = "control"
         } else if ((atkPlayer.ovr + (atkPlayer.atk * 1.5)) >= (this.ovr + (this.def * 1.5))) { 
             computerScore += 1
-            awSound.play();
             outcome = `${this.name} fails to defend and ${atkPlayer.name} scores!`
             gamePhase = "control"
+            if (audioBtnEl.classList.contains("playing")) {
+                awSound.play();
+                }
         }
     }
     control(oppPlayer) { 
@@ -247,20 +251,26 @@ function randomAction() {
 function checkWin() { 
     if (computerTeam.roster.length === 0) { 
         userTeamEl.removeEventListener("click", select);
+        if (audioBtnEl.classList.contains("playing")) {
         ambientCrowd.pause(); 
         whistleSound.play();
+        }
         if (userScore > computerScore) { 
             instructions = "Your team won the game! Go celebrate!";
+            if (audioBtnEl.classList.contains("playing")) {
             goalSound.pause(); 
             goalSound.currentTime = 0;
             goalSound.play();
+            }
         } else if (userScore < computerScore) { 
             instructions = "Your team lost.";
+            if (audioBtnEl.classList.contains("playing")) {
             awSound.play();
+            }
         } else if (userScore === computerScore) { 
             instructions = "It's a tie! (Yep ties happen in soccer, sorry)";
         }
-}
+    }
 }
 //change bench borders to reflect team 
 function changeBorder(side, team) {

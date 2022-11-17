@@ -104,7 +104,9 @@ body {
 }
 .instructions { 
     display: flex;
+    
     flex-direction: column;
+    text-align: center;
     align-items: center;
     grid-column-start: 2;
     grid-column-end: 3;
