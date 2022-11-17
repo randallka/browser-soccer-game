@@ -8,6 +8,8 @@
 * Javascript 
 
 ### Getting Started: 
+#### To play the game visit: https://randallka.github.io/browser-soccer-game/
+
 #### At the start of the game the user will choose which team they would like to play as. The computer will then do the same . 
 #### After team selection both rosters will be populated with 11 players. The players are based off of real players and have uniques stats coinciding with their real-life ability. 
 #### Under the field, instructions tell the user what phase of the game is happening: 
@@ -22,4 +24,4 @@
 ### Next Steps: 
 * difficulty modes
 * animations make game events more obvious 
-* css adjustments for dynamic sizing
+* css adjustments for dynamic sizing (game doesnt work well in mobile browsers)
